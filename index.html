@@ -1,11 +1,40 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Finder</title>
-</head>
-<body>
-    <h1>Hello Larry</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event Finder</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Event Finder</h1>
+            <input type="text" id="search" placeholder="Search events...">
+            <select id="category">
+                <option value="all">All Categories</option>
+                <option value="music">Music</option>
+                <option value="sports">Sports</option>
+                <option value="tech">Tech</option>
+            </select>
+        </header>
+
+        <main>
+            <ul id="event-list"></ul>
+        </main>
+
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="event-title"></h2>
+                <p id="event-description"></p>
+                <p><strong>Time:</strong> <span id="event-time"></span></p>
+                <p><strong>Location:</strong> <span
+                        id="event-location"></span></p>
+                <p><strong>Price:</strong> <span id="event-price"></span></p>
+                <button id="rsvp-btn">RSVP</button>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
 </html>
