@@ -50,13 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fetch and display event details in modal
   function fetchEventDetails(eventId) {
     const url = `${API_URL}/${eventId}`;
-    console.log("Fetching event details from:", fetch(url)); // Debugging
+   // console.log("Fetching event details from:", fetch(url)); // Debugging
     fetch(url)
       .then((response) => response.json())
       .then((event) => {
         eventTitle.textContent = event.name;
-        eventDescription.textContent =
-          event.description || "No description available.";
+        eventDescription.textContent = event.description || "No description available.";
         eventTime.textContent = event.date;
         eventLocation.textContent = event.location;
         eventPrice.textContent = event.price ? `$${event.price}` : "Free";
@@ -84,8 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function rsvpToEvent(eventId) {
-    const url = "http://localhost:3000/rsvps";
-    const fetch_url = `${url}/${eventId}`;
+    const fetch_url = `${API_URL}/${eventId}`;
     fetch(fetch_url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

@@ -21,7 +21,8 @@
       "location": "Mombasa, Kenya",
       "price": 1000,
       "description": "Enjoy live performances from top artists.",
-      "attendees": 150
+      "attendees": 150,
+      "rsvp": false
     },
     {
       "id": "3",
@@ -44,7 +45,8 @@
       "location": "Lagos, Nigeria",
       "price": 2000,
       "description": "Industry experts discuss the latest in AI and ML.",
-      "attendees": 200
+      "attendees": 200,
+      "rsvp": false
     },
     {
       "id": "5",
@@ -55,7 +57,8 @@
       "location": "Kampala, Uganda",
       "price": 0,
       "description": "Join a marathon to support local charities.",
-      "attendees": 500
+      "attendees": 500,
+      "rsvp": false
     },
     {
       "id": "6",
@@ -66,7 +69,8 @@
       "location": "Dar es Salaam, Tanzania",
       "price": 800,
       "description": "Taste the best food and wine from top chefs.",
-      "attendees": 300
+      "attendees": 300,
+      "rsvp": false
     },
     {
       "id": "7",
@@ -77,7 +81,8 @@
       "location": "Accra, Ghana",
       "price": 1500,
       "description": "Learn full-stack development in an intensive bootcamp.",
-      "attendees": 100
+      "attendees": 100,
+      "rsvp": false
     },
     {
       "id": "8",
@@ -88,7 +93,8 @@
       "location": "Johannesburg, South Africa",
       "price": 1200,
       "description": "Exclusive screening of a highly anticipated sci-fi movie.",
-      "attendees": 250
+      "attendees": 250,
+      "rsvp": false
     },
     {
       "id": "9",
@@ -99,7 +105,8 @@
       "location": "Cairo, Egypt",
       "price": 700,
       "description": "Improve your photography skills with professional guidance.",
-      "attendees": 80
+      "attendees": 80,
+      "rsvp": false
     },
     {
       "id": "10",
@@ -110,7 +117,30 @@
       "location": "Nairobi, Kenya",
       "price": 500,
       "description": "A musical evening to support underprivileged children.",
-      "attendees": 400
+      "attendees": 400,
+      "rsvp": false
+    },
+    {
+      "id": "11",
+      "name": "Startup Pitch Night",
+      "category": "Business",
+      "date": "2025-06-20",
+      "time": "17:30",
+      "location": "Kampala, Uganda",
+      "price": 500,
+      "attendees": 50,
+      "rsvp": true
+    },
+    {
+      "id": "12",
+      "name": "Marathon Challenge",
+      "category": "Sports",
+      "date": "2025-07-08",
+      "time": "06:00",
+      "location": "Dar es Salaam, Tanzania",
+      "price": 200,
+      "attendees": 300,
+      "rsvp": false
     }
   ],
   "rsvps": [
@@ -118,71 +148,67 @@
       "id": "1",
       "eventId": 1,
       "name": "John Doe",
-      "email": "johndoe@example.com",
-      "rsvp": true
+      "email": "johndoe@example.com"
     },
     {
       "id": "2",
       "eventId": 2,
       "name": "Alice Smith",
-      "email": "alice@example.com",
-      "rsvp": true
+      "email": "alice@example.com"
     },
     {
       "id": "3",
       "eventId": 3,
       "name": "Bob Johnson",
-      "email": "bob@example.com",
-      "rsvp": true
+      "email": "bob@example.com"
     },
     {
       "id": "4",
       "eventId": 4,
       "name": "Sarah Lee",
-      "email": "sarah@example.com",
-      "rsvp": false
+      "email": "sarah@example.com"
     },
     {
       "id": "5",
       "eventId": 5,
       "name": "David Kim",
-      "email": "david@example.com",
-      "rsvp": false
+      "email": "david@example.com"
     },
     {
       "id": "6",
       "eventId": 6,
       "name": "Emma Brown",
-      "email": "emma@example.com",
-      "rsvp": false
+      "email": "emma@example.com"
     },
     {
       "id": "7",
       "eventId": 7,
       "name": "James Wilson",
-      "email": "james@example.com",
-      "rsvp": false
+      "email": "james@example.com"
     },
     {
       "id": "8",
       "eventId": 8,
       "name": "Grace Taylor",
-      "email": "grace@example.com",
-      "rsvp": false
+      "email": "grace@example.com"
     },
     {
       "id": "9",
       "eventId": 9,
       "name": "Henry White",
-      "email": "henry@example.com",
-      "rsvp": false
+      "email": "henry@example.com"
     },
     {
       "id": "10",
       "eventId": 10,
       "name": "Olivia Harris",
-      "email": "olivia@example.com",
-      "rsvp": true
-    }
+      "email": "olivia@example.com"
+    },
+    {
+        "id": "11",
+        "eventId": 11,
+        "name": "Larry Harris",
+        "email": "Larry@example.com"
+      }
   ]
 }
