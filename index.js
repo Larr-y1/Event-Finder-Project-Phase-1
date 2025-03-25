@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((event) => {
         eventTitle.textContent = event.name;
-        eventDescription.textContent =event.description || "No description available.";
+        eventDescription.textContent =
+          event.description || "No description available.";
         eventTime.textContent = event.date;
         eventLocation.textContent = event.location;
         eventPrice.textContent = event.price ? `$${event.price}` : "Free";
@@ -67,13 +68,32 @@ document.addEventListener("DOMContentLoaded", () => {
   closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none";
   });
-  
+
   // Listens for any click anywhere on the page.
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
     }
   });
+
+  // RSVP functionality
+  rsvpBtn.addEventListener("click", () => {
+    const eventId = rsvpBtn.dataset.id;
+    rsvpToEvent(eventId);
+  });
+
+  function rsvpToEvent(eventId) {
+    const url = 'http://localhost:3000/rsvps'
+    const fetch_url = `${url}/${eventId}`
+    fetch(fetch_url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rsvp: true }),
+    })
+      .then((response) => response.json())
+      .then(() => alert("RSVP confirmed!"))
+      .catch((error) => console.error("Error RSVPing:", error));
+  }
 
   fetchEvents();
 });

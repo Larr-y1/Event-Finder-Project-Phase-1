@@ -1,116 +1,188 @@
 {
-    "events": [
-      {
-        "id": 1,
-        "name": "Tech Meetup",
-        "category": "Technology",
-        "date": "2025-04-10",
-        "time": "18:00",
-        "location": "Nairobi, Kenya",
-        "price": 0,
-        "description": "A networking event for tech enthusiasts.",
-        "attendees": 35
-      },
-      {
-        "id": 2,
-        "name": "Music Festival",
-        "category": "Music",
-        "date": "2025-05-15",
-        "time": "16:00",
-        "location": "Mombasa, Kenya",
-        "price": 1000,
-        "description": "Enjoy live performances from top artists.",
-        "attendees": 150
-      },
-      {
-        "id": 3,
-        "name": "Startup Pitch Night",
-        "category": "Business",
-        "date": "2025-06-20",
-        "time": "19:00",
-        "location": "Kigali, Rwanda",
-        "price": 500,
-        "description": "An opportunity for startups to pitch their ideas to investors.",
-        "attendees": 50
-      },
-      {
-        "id": 4,
-        "name": "AI & Machine Learning Conference",
-        "category": "Technology",
-        "date": "2025-07-05",
-        "time": "09:00",
-        "location": "Lagos, Nigeria",
-        "price": 2000,
-        "description": "Industry experts discuss the latest in AI and ML.",
-        "attendees": 200
-      },
-      {
-        "id": 5,
-        "name": "Marathon for Charity",
-        "category": "Sports",
-        "date": "2025-08-12",
-        "time": "06:00",
-        "location": "Kampala, Uganda",
-        "price": 0,
-        "description": "Join a marathon to support local charities.",
-        "attendees": 500
-      },
-      {
-        "id": 6,
-        "name": "Food & Wine Expo",
-        "category": "Lifestyle",
-        "date": "2025-09-25",
-        "time": "12:00",
-        "location": "Dar es Salaam, Tanzania",
-        "price": 800,
-        "description": "Taste the best food and wine from top chefs.",
-        "attendees": 300
-      },
-      {
-        "id": 7,
-        "name": "Coding Bootcamp",
-        "category": "Technology",
-        "date": "2025-10-18",
-        "time": "08:00",
-        "location": "Accra, Ghana",
-        "price": 1500,
-        "description": "Learn full-stack development in an intensive bootcamp.",
-        "attendees": 100
-      },
-      {
-        "id": 8,
-        "name": "Film Premiere: The Future",
-        "category": "Entertainment",
-        "date": "2025-11-10",
-        "time": "20:00",
-        "location": "Johannesburg, South Africa",
-        "price": 1200,
-        "description": "Exclusive screening of a highly anticipated sci-fi movie.",
-        "attendees": 250
-      },
-      {
-        "id": 9,
-        "name": "Photography Masterclass",
-        "category": "Arts",
-        "date": "2025-12-05",
-        "time": "14:00",
-        "location": "Cairo, Egypt",
-        "price": 700,
-        "description": "Improve your photography skills with professional guidance.",
-        "attendees": 80
-      },
-      {
-        "id": 10,
-        "name": "Christmas Charity Concert",
-        "category": "Music",
-        "date": "2025-12-24",
-        "time": "18:30",
-        "location": "Nairobi, Kenya",
-        "price": 500,
-        "description": "A musical evening to support underprivileged children.",
-        "attendees": 400
-      }
-    ],
-    "rsvps": []
-  }
-  
+  "events": [
+    {
+      "id": "1",
+      "name": "Tech Meetup",
+      "category": "Technology",
+      "date": "2025-04-10",
+      "time": "18:00",
+      "location": "Nairobi, Kenya",
+      "price": 0,
+      "description": "A networking event for tech enthusiasts.",
+      "attendees": 35,
+      "rsvp": true
+    },
+    {
+      "id": "2",
+      "name": "Music Festival",
+      "category": "Music",
+      "date": "2025-05-15",
+      "time": "16:00",
+      "location": "Mombasa, Kenya",
+      "price": 1000,
+      "description": "Enjoy live performances from top artists.",
+      "attendees": 150
+    },
+    {
+      "id": "3",
+      "name": "Startup Pitch Night",
+      "category": "Business",
+      "date": "2025-06-20",
+      "time": "19:00",
+      "location": "Kigali, Rwanda",
+      "price": 500,
+      "description": "An opportunity for startups to pitch their ideas to investors.",
+      "attendees": 50,
+      "rsvp": true
+    },
+    {
+      "id": "4",
+      "name": "AI & Machine Learning Conference",
+      "category": "Technology",
+      "date": "2025-07-05",
+      "time": "09:00",
+      "location": "Lagos, Nigeria",
+      "price": 2000,
+      "description": "Industry experts discuss the latest in AI and ML.",
+      "attendees": 200
+    },
+    {
+      "id": "5",
+      "name": "Marathon for Charity",
+      "category": "Sports",
+      "date": "2025-08-12",
+      "time": "06:00",
+      "location": "Kampala, Uganda",
+      "price": 0,
+      "description": "Join a marathon to support local charities.",
+      "attendees": 500
+    },
+    {
+      "id": "6",
+      "name": "Food & Wine Expo",
+      "category": "Lifestyle",
+      "date": "2025-09-25",
+      "time": "12:00",
+      "location": "Dar es Salaam, Tanzania",
+      "price": 800,
+      "description": "Taste the best food and wine from top chefs.",
+      "attendees": 300
+    },
+    {
+      "id": "7",
+      "name": "Coding Bootcamp",
+      "category": "Technology",
+      "date": "2025-10-18",
+      "time": "08:00",
+      "location": "Accra, Ghana",
+      "price": 1500,
+      "description": "Learn full-stack development in an intensive bootcamp.",
+      "attendees": 100
+    },
+    {
+      "id": "8",
+      "name": "Film Premiere: The Future",
+      "category": "Entertainment",
+      "date": "2025-11-10",
+      "time": "20:00",
+      "location": "Johannesburg, South Africa",
+      "price": 1200,
+      "description": "Exclusive screening of a highly anticipated sci-fi movie.",
+      "attendees": 250
+    },
+    {
+      "id": "9",
+      "name": "Photography Masterclass",
+      "category": "Arts",
+      "date": "2025-12-05",
+      "time": "14:00",
+      "location": "Cairo, Egypt",
+      "price": 700,
+      "description": "Improve your photography skills with professional guidance.",
+      "attendees": 80
+    },
+    {
+      "id": "10",
+      "name": "Christmas Charity Concert",
+      "category": "Music",
+      "date": "2025-12-24",
+      "time": "18:30",
+      "location": "Nairobi, Kenya",
+      "price": 500,
+      "description": "A musical evening to support underprivileged children.",
+      "attendees": 400
+    }
+  ],
+  "rsvps": [
+    {
+      "id": "1",
+      "eventId": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "rsvp": true
+    },
+    {
+      "id": "2",
+      "eventId": 2,
+      "name": "Alice Smith",
+      "email": "alice@example.com",
+      "rsvp": true
+    },
+    {
+      "id": "3",
+      "eventId": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "rsvp": true
+    },
+    {
+      "id": "4",
+      "eventId": 4,
+      "name": "Sarah Lee",
+      "email": "sarah@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "5",
+      "eventId": 5,
+      "name": "David Kim",
+      "email": "david@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "6",
+      "eventId": 6,
+      "name": "Emma Brown",
+      "email": "emma@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "7",
+      "eventId": 7,
+      "name": "James Wilson",
+      "email": "james@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "8",
+      "eventId": 8,
+      "name": "Grace Taylor",
+      "email": "grace@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "9",
+      "eventId": 9,
+      "name": "Henry White",
+      "email": "henry@example.com",
+      "rsvp": false
+    },
+    {
+      "id": "10",
+      "eventId": 10,
+      "name": "Olivia Harris",
+      "email": "olivia@example.com",
+      "rsvp": true
+    }
+  ]
+}

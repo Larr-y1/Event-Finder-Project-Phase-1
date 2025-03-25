@@ -65,7 +65,7 @@ header {
     color: #555;
 }
 
-.rsvp-btn {
+#rsvp-btn {
     background: #28a745;
     color: white;
     border: none;
@@ -77,7 +77,7 @@ header {
     text-align: center;
 }
 
-.rsvp-btn:hover {
+#rsvp-btn:hover {
     background: #218838;
 }
 
