@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const eventList = document.getElementById("event-list");
   const searchInput = document.getElementById("search");
+  const categorySelect = document.getElementById("category");
 
   // Modal elements
   const modal = document.getElementById("event-modal");
@@ -83,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function rsvpToEvent(eventId) {
-    const url = 'http://localhost:3000/rsvps'
-    const fetch_url = `${url}/${eventId}`
+    const url = "http://localhost:3000/rsvps";
+    const fetch_url = `${url}/${eventId}`;
     fetch(fetch_url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -94,6 +95,30 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => alert("RSVP confirmed!"))
       .catch((error) => console.error("Error RSVPing:", error));
   }
+
+  // Function to fetch and filter events based on search term and category
+  function fetchAndFilterEvents() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCategory = categorySelect.value;
+
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((events) => {
+        const filteredEvents = events.filter((event) => {
+          const matchesName = event.name.toLowerCase().includes(searchTerm);
+          const matchesCategory =
+            selectedCategory === "all" ||
+            event.category.toLowerCase() === selectedCategory;
+          return matchesName && matchesCategory;
+        });
+
+        displayEventList(filteredEvents);
+      })
+      .catch((error) => console.error("Error fetching events:", error));
+  }
+  // Event listener for search input
+  searchInput.addEventListener("input", fetchAndFilterEvents);
+  categorySelect.addEventListener("change", fetchAndFilterEvents);
 
   fetchEvents();
 });
