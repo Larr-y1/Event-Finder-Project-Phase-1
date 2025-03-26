@@ -125,3 +125,48 @@ i {
     font-size: 24px;
     cursor: pointer;
 }
+
+
+/* MEDIA QUERIES */
+
+/* Medium screens (Tablets & Small Laptops) */
+@media (max-width: 768px) {
+    i.bi-search {
+        display: none;
+    }
+    #search {
+        width: 80%; /* Make the search bar responsive */
+        padding-left: 10px; /* Remove extra left padding */
+    }
+    #category {
+        width: 50%;
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 576px) {
+    i.bi-search {
+        display: none;
+    }
+    #search {
+        width: 90%;
+        padding-left: 10px;
+    }
+    #category {
+        width: 80%;
+    }
+}
+
+/* Extra Small screens (Very small phones) */
+@media (max-width: 375px) {
+    i.bi-search {
+        display: none;
+    }
+    #search {
+        width: 100%;
+        padding-left: 10px;
+    }
+    #category {
+        width: 100%;
+    }
+}
