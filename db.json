@@ -22,7 +22,7 @@
       "price": 1000,
       "description": "Enjoy live performances from top artists.",
       "attendees": 150,
-      "rsvp": false
+      "rsvp": true
     },
     {
       "id": "3",
@@ -94,7 +94,7 @@
       "price": 1200,
       "description": "Exclusive screening of a highly anticipated sci-fi movie.",
       "attendees": 250,
-      "rsvp": false
+      "rsvp": true
     },
     {
       "id": "9",
@@ -205,10 +205,10 @@
       "email": "olivia@example.com"
     },
     {
-        "id": "11",
-        "eventId": 11,
-        "name": "Larry Harris",
-        "email": "Larry@example.com"
-      }
+      "id": "11",
+      "eventId": 11,
+      "name": "Larry Harris",
+      "email": "Larry@example.com"
+    }
   ]
 }

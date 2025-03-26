@@ -13,14 +13,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const eventPrice = document.getElementById("event-price");
   const rsvpBtn = document.getElementById("rsvp-btn");
 
-  const API_URL = "http://localhost:3000/events";
+  // const API_URL = "http://localhost:3000/events";
+  const API_URL = "https://api.jsonbin.io/v3/b/67e2faab8960c979a5783b13";
+  console.log(API_URL);
+  const API_WRITE_URL = "https://api.jsonbin.io/v3/b/67e2faab8960c979a5783b13"; // Use this for PUT requests
 
   function fetchEvents() {
     fetch(API_URL)
       .then((response) => response.json())
-      .then((events) => displayEventList(events))
+      .then((data) => {
+        console.log("Fetched Data:", data); // Debugging
+        const events = data.record.events; // Extracting only the events array
+
+        //if (Array.isArray(events)) {
+        displayEventList(events); // Call your function with the correct array
+        //} else {
+        //throw new Error("Fetched data is not an array.");
+        // }
+      })
       .catch((error) =>
-        console.error("Error while fetching the events", error)
+        console.error("Error while fetching the events:", error)
       );
   }
 
@@ -47,21 +59,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Fetch and display event details in modal
   function fetchEventDetails(eventId) {
-    const url = `${API_URL}/${eventId}`;
-   // console.log("Fetching event details from:", fetch(url)); // Debugging
-    fetch(url)
+    fetch(API_URL) // Fetch entire data
       .then((response) => response.json())
-      .then((event) => {
+      .then((data) => {
+        const events = data.record.events; // Access events array
+        const event = events.find((event) => event.id == eventId); // Find event by ID
+
+        if (!event) {
+          throw new Error(`Event with ID ${eventId} not found`);
+        }
+
+        console.log("Fetched Event Details:", event);
+
+        // Update modal with event details
         eventTitle.textContent = event.name;
-        eventDescription.textContent = event.description || "No description available.";
+        eventDescription.textContent =
+          event.description || "No description available.";
         eventTime.textContent = event.date;
         eventLocation.textContent = event.location;
         eventPrice.textContent = event.price ? `$${event.price}` : "Free";
         rsvpBtn.dataset.id = event.id; // Store event ID in RSVP button
         modal.style.display = "block";
-      });
+      })
+      .catch((error) => console.error("Error fetching event details:", error));
   }
 
   // Close modal functionality
@@ -83,25 +104,58 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function rsvpToEvent(eventId) {
-    const fetch_url = `${API_URL}/${eventId}`;
-    fetch(fetch_url, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ rsvp: true }),
+    fetch(API_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
-      .then(() => alert("RSVP confirmed!"))
+      .then((data) => {
+        let record = data.record; // Access the record object
+        console.log(record);
+        let event = record.events.find((event) => event.id === eventId);
+        //console.log(event)
+        if (!event) {
+          alert("Event not found!");
+          return;
+        }
+
+        event.rsvp = true; // Update RSVP field
+        //console.log(event)
+        // Send the updated record back to jsonbin.io
+        return fetch(API_URL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ rsvp: true }), // Send the entire record
+        });
+      })
+      .then((response) => {
+        console.log("PUT Response status:", response.status);
+        response.json();
+      })
+      .then((updatedData) => {
+        console.log("Updated data response from jsonbin.io:", updatedData);
+        alert("RSVP confirmed!");
+      })
       .catch((error) => console.error("Error RSVPing:", error));
   }
 
-  // Function to fetch and filter events based on search term and category
   function fetchAndFilterEvents() {
     const searchTerm = searchInput.value.toLowerCase();
     const selectedCategory = categorySelect.value;
 
     fetch(API_URL)
       .then((response) => response.json())
-      .then((events) => {
+      .then((data) => {
+        const events = data.record.events; // ✅ Correctly access the array
+
+        if (!Array.isArray(events)) {
+          throw new Error("Events data is not an array");
+        }
+
         const filteredEvents = events.filter((event) => {
           const matchesName = event.name.toLowerCase().includes(searchTerm);
           const matchesCategory =
@@ -114,7 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error fetching events:", error));
   }
-  // Event listener for search input
+
+  // Event listeners
   searchInput.addEventListener("input", fetchAndFilterEvents);
   categorySelect.addEventListener("change", fetchAndFilterEvents);
 
