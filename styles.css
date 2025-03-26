@@ -17,11 +17,17 @@ header {
     text-align: center;
 }
 
+#searchBar {
+    position: relative;
+    display: inline-block;
+}
+
 #search {
-    width: 60%;
-    padding: 10px;
-    margin: 10px auto;
+    width: 600px;
     display: block;
+    margin: 10px auto;
+    padding: 10px;
+    padding-left: 30px; 
     border: none;
     border-radius: 5px;
 }
@@ -30,10 +36,19 @@ header {
     outline: none;
 }
 
+i {
+    position: absolute; 
+    left: 8px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: gray;
+}
+
 #category {
-    width: 40%;
+    width: 20%;
     padding: 10px;
-    margin: 10px auto;
+    margin: 10px auto;  
+
 }
 
 #category:focus {
@@ -100,6 +115,7 @@ header {
     text-align: center;
     border-radius: 8px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .close {

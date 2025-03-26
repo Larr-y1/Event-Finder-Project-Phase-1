@@ -74,8 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Update modal with event details
         eventTitle.textContent = event.name;
-        eventDescription.textContent =
-          event.description || "No description available.";
+        eventDescription.textContent = event.description || "No description available.";
         eventTime.textContent = event.date;
         eventLocation.textContent = event.location;
         eventPrice.textContent = event.price ? `$${event.price}` : "Free";
