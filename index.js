@@ -13,13 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const eventPrice = document.getElementById("event-price");
   const rsvpBtn = document.getElementById("rsvp-btn");
 
-  // const API_URL = "http://localhost:3000/events";
-  const API_URL = "https://api.jsonbin.io/v3/b/67e2faab8960c979a5783b13";
-  console.log(API_URL);
-  const API_WRITE_URL = "https://api.jsonbin.io/v3/b/67e2faab8960c979a5783b13"; // Use this for PUT requests
+  // const API_URL = "https://api.jsonbin.io/v3/b/67e2faab8960c979a5783b13";
+  const API_URL = "https://api.jsonbin.io/v3/b/67e531888561e97a50f3da25"; // Use this for PUT requests
+
+  const loadingMessage = document.createElement('p');
+  loadingMessage.textContent = 'Loading Events...';
+  eventList.appendChild(loadingMessage);
 
   function fetchEvents() {
-    fetch(API_URL)
+    setTimeout(() => {
+      fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched Data:", data); // Debugging
@@ -34,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) =>
         console.error("Error while fetching the events:", error)
       );
+    })
   }
 
   function displayEventList(events) {
@@ -43,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       eventCard.classList.add("event-card");
       eventCard.dataset.id = event.id; // Store ID in dataset
       eventCard.innerHTML = `
+              <img src="${event.img_url}" alt="">
               <h3>${event.name}</h3>
               <p>${event.date} - ${event.location}</p>
           `;
@@ -106,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(API_URL, {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
     })
       .then((response) => response.json())
@@ -127,17 +132,18 @@ document.addEventListener("DOMContentLoaded", () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            "X-Bin-Versioning": "false"  // Disables version control
           },
-          body: JSON.stringify({ rsvp: true }), // Send the entire record
+          body: JSON.stringify({ record  }), // Send the entire record
         });
       })
       .then((response) => {
-        console.log("PUT Response status:", response.status);
+       // console.log("PUT Response status:", response.status);
         response.json();
       })
       .then((updatedData) => {
         console.log("Updated data response from jsonbin.io:", updatedData);
-        alert("RSVP confirmed!");
+        alert("🎉 RSVP confirmed!");
       })
       .catch((error) => console.error("Error RSVPing:", error));
   }
@@ -149,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
-        const events = data.record.events; // ✅ Correctly access the array
+        const events = data.record.events; //  Correctly access the array
 
         if (!Array.isArray(events)) {
           throw new Error("Events data is not an array");

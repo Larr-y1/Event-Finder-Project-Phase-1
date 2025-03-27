@@ -71,6 +71,13 @@ i {
     width: 300px;
 }
 
+.event-card img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+
 .event-card h3 {
     margin: 0 0 10px;
 }
@@ -125,7 +132,6 @@ i {
     font-size: 24px;
     cursor: pointer;
 }
-
 
 /* MEDIA QUERIES */
 

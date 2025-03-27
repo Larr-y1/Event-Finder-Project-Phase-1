@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventList = document.getElementById("event-list");
     const searchInput = document.getElementById("search");
     const categorySelect = document.getElementById("category");
-  
+    
     // Modal elements
     const modal = document.getElementById("event-modal");
     const closeModalBtn = document.querySelector(".close");
@@ -15,14 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const API_URL = "http://localhost:3000/events";
 
+    const loadingMessage = document.createElement('p');
+    loadingMessage.textContent = 'Loading Events...';
+    eventList.appendChild(loadingMessage);
+
   
     function fetchEvents() {
-      fetch(API_URL)
+      setTimeout(() => {
+        fetch(API_URL)
         .then((response) => response.json())
         .then((events) => displayEventList(events))
         .catch((error) =>
           console.error("Error while fetching the events", error)
         );
+      }, 1000)
     }
   
     function displayEventList(events) {
@@ -32,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         eventCard.classList.add("event-card");
         eventCard.dataset.id = event.id; // Store ID in dataset
         eventCard.innerHTML = `
+                 <img src="${event.img_url}" alt="">
                 <h3>${event.name}</h3>
                 <p>${event.date} - ${event.location}</p>
             `;
@@ -82,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const eventId = rsvpBtn.dataset.id;
       rsvpToEvent(eventId);
     });
-  
+
+    
     function rsvpToEvent(eventId) {
       const fetch_url = `${API_URL}/${eventId}`;
       fetch(fetch_url, {
@@ -91,8 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ rsvp: true }),
       })
         .then((response) => response.json())
-        .then(() => alert("RSVP confirmed!"))
-        .catch((error) => console.error("Error RSVPing:", error));
+        .then(() => alert("🎉 RSVP confirmed!"))
+        .catch((error) => console.error("Error RSVPing:", error));       
     }
   
     // Function to fetch and filter events based on search term and category
@@ -120,4 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySelect.addEventListener("change", fetchAndFilterEvents);
   
     fetchEvents();
-  });
+  });  // console.error("Error RSVPing:", error)
