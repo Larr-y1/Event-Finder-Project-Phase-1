@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
       eventList.innerHTML = ""; // clears the elements
       events.forEach((event) => {
         const eventCard = document.createElement("div");
-        eventCard.classList.add("event-card");
+        eventCard.classList.add("event-card", "animate__animated", "animate__fadeInUp");
         eventCard.dataset.id = event.id; // Store ID in dataset
         eventCard.innerHTML = `
-                 <img src="${event.img_url}" alt="">
+                <img src="${event.img_url}" alt="">
                 <h3>${event.name}</h3>
                 <p>${event.date} - ${event.location}</p>
             `;
@@ -128,4 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySelect.addEventListener("change", fetchAndFilterEvents);
   
     fetchEvents();
-  });  // console.error("Error RSVPing:", error)
+  }); 
