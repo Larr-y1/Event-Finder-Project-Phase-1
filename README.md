@@ -5,21 +5,21 @@ Event Finder is a user-friendly web application that allows users to browse and 
 RSVP stands for "Répondez s'il vous plaît", which is French for "Please respond." In event management, RSVPs allow organizers to track the number of attendees and plan accordingly.In an event finder app, an RSVP feature enables users to confirm their attendance at an event. The system updates the event details to reflect the number of attendees.
 
 # 📝 Table of Contents
-1.Installation
-2.Usage
-3.API Reference (if applicable)
-4.Technologies Used
-5.Screenshots (if applicable)
-6.Contributing
-7.License
-8.Contact
+- Installation
+- Usage
+- API Reference (if applicable)
+- Technologies Used
+- Screenshots (if applicable)
+- Contributing
+- License
+- Contact
 
 # ✨ Features
- 1.Browse Events – Explore upcoming local events categorized by type.
- 2.Search Functionality – Find events quickly by name.
- 3.Event Details – View essential details such as date, time, location, and price.
- 4.RSVP & Attendance Tracking – RSVP to events and keep track of attendance.
- 5.Dynamic UI – Enjoy a smooth and interactive user experience.
+ - Browse Events – Explore upcoming local events categorized by type.
+ - Search Functionality – Find events quickly by name.
+ - Event Details – View essential details such as date, time, location, and price.
+ - RSVP & Attendance Tracking – RSVP to events and keep track of attendance.
+ - Dynamic UI – Enjoy a smooth and interactive user experience.
 
 # ⚙️ Installation How to install and set up the project locally.
 - Clone the repository: git clone https://github.com/Larr-y1/Event-Finder-Project-Phase-1.git
@@ -28,24 +28,24 @@ RSVP stands for "Répondez s'il vous plaît", which is French for "Please respon
 - Open the project in your preferred code editor and start the development server using live-server 
 
 # 🚀 Usage How to use your app after installation.
-1.Search for Events – Enter a search term to find events by name.
-2.Filter by Category – Use the category dropdown to filter events.
-3.View Event Details – Click on an event card to see more details.
-4.RSVP to Events – RSVP to an event and receive confirmation.
+- Search for Events – Enter a search term to find events by name.
+- Filter by Category – Use the category dropdown to filter events.
+- View Event Details – Click on an event card to see more details.
+- RSVP to Events – RSVP to an event and receive confirmation.
 
 # 🔌API Reference 
 This application originally fetched data from a local db.json file using json-server. However, since GitHub Pages does not support local JSON files, we have migrated our event data to jsonbin.io, ensuring seamless data retrieval when the app is deployed.
 
 Endpoints
-Local Development (Using JSON Server)
-GET /events – Retrieves all events
-GET /events/:id – Retrieves a specific event
-PATCH /events/:id – Updates RSVP status for an event
+# Local Development (Using JSON Server)
+- GET /events – Retrieves all events
+- GET /events/:id – Retrieves a specific event
+- PATCH /events/:id – Updates RSVP status for an event
 
-Production (Using jsonbin.io)
-GET /events – Retrieves all events
-GET /events/:id – Retrieves a specific event
-PUT /events/:id – Updates RSVP status for an event
+ # Production (Using jsonbin.io)
+- GET /events – Retrieves all events
+- GET /events/:id – Retrieves a specific event
+- PUT /events/:id – Updates RSVP status for an event
 
 Why jsonbin.io?
 Hosting event data on jsonbin.io ensures the app remains fully functional when deployed on GitHub Pages, avoiding 404 and 401 errors that occur when trying to fetch local JSON files.

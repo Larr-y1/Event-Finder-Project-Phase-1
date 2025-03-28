@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(response => response.json())
       .then((updatedData) => {
-        console.log("Updated data response from jsonbin.io:", updatedData); // debugging
+        // console.log("Updated data response from jsonbin.io:", updatedData); // debugging
         alert("🎉 RSVP confirmed!");
       })
       .catch((error) => console.error("Error RSVPing:", error));
