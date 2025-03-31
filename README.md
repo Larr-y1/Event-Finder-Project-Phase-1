@@ -83,10 +83,10 @@ Alert message
 # Contributing
 Contributions are welcome! To contribute:
 
-Fork the repository
-Create a new branch (git checkout -b feature-branch)
-Make your changes and commit (git commit -m "Add new feature")
-Push to your fork and submit a pull request
+- Fork the repository
+- Create a new branch (git checkout -b feature-branch)
+- Make your changes and commit (git commit -m "Add new feature")
+- Push to your fork and submit a pull request
 
 # 📜 License 
 - This project is licensed under the MIT License - see the LICENSE file for details.
